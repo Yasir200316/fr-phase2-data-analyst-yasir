@@ -1,0 +1,22 @@
+-- View all customers
+SELECT * FROM customers;
+
+-- Count total customers
+SELECT COUNT(*) FROM customers;
+
+-- Customers from USA
+SELECT * FROM customers
+WHERE Country = 'USA';
+
+-- Number of customers by country
+SELECT Country, COUNT(*) AS customer_count
+FROM customers
+GROUP BY Country;
+
+-- Join customers and invoices
+SELECT customers.FirstName,
+       customers.LastName,
+       invoices.Total
+FROM customers
+JOIN invoices
+ON customers.CustomerId = invoices.CustomerId;
